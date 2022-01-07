@@ -26,7 +26,7 @@ export default function Payment({ cart, whiteUnits, blackUnits }) {
     })
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
-  }, []);
+  }, [cart, whiteUnits, blackUnits]);
 
   const appearance = {
     theme: "stripe",

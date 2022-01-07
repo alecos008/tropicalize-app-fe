@@ -19,13 +19,15 @@ function Cart({ cart }) {
   };
 
   const handleCheckout = (items, blackQty, whiteQty) => {
+    let whiteUnits = Number(whiteQty);
+    let blackUnits = Number(blackQty);
+
     axios
       .post(
         `${process.env.REACT_APP_API_HOST}/payments/create-payment-intent`,
-        { items, blackQty, whiteQty }
+        { items, blackUnits, whiteUnits }
       )
       .then((result) => {
-        console.log(result);
         setShowPaymentForm(true);
       })
       .catch((err) => {
