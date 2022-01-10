@@ -4,7 +4,8 @@ import Payment from "./Payment";
 
 function ShippingForm({ cart, whiteUnits, blackUnits }) {
   const [name, setName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [telephone, setTelephone] = useState("");
   const [streetAddress, setStreetAddress] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
@@ -21,8 +22,8 @@ function ShippingForm({ cart, whiteUnits, blackUnits }) {
       case "name":
         setName(value);
         break;
-      case "lastName":
-        setLastName(value);
+      case "email":
+        setEmail(value);
         break;
       case "streetAddress":
         setStreetAddress(value);
@@ -36,9 +37,12 @@ function ShippingForm({ cart, whiteUnits, blackUnits }) {
       case "zipcode":
         setZipcode(value);
         break;
+      case "telephone":
+        setTelephone(value);
+        break;
     }
 
-    name && lastName && streetAddress && city && state && zipcode
+    name && email && telephone && streetAddress && city && state && zipcode
       ? setReadyToSubmitShippingInfo(true)
       : setReadyToSubmitShippingInfo(false);
   };
@@ -65,7 +69,8 @@ function ShippingForm({ cart, whiteUnits, blackUnits }) {
     axios
       .post(`${process.env.REACT_APP_API_HOST}/shipping/collect-address`, {
         name,
-        lastName,
+        email,
+        telephone,
         streetAddress,
         city,
         state,
@@ -81,7 +86,8 @@ function ShippingForm({ cart, whiteUnits, blackUnits }) {
     setShowShippingForm(false);
     setIsReadyToBuy(true);
     setName("");
-    setLastName("");
+    setEmail("");
+    setTelephone("");
     setStreetAddress("");
     setCity("");
     setState("");
@@ -105,10 +111,17 @@ function ShippingForm({ cart, whiteUnits, blackUnits }) {
             onChange={handleChange}
           />
           <input
-            type="text"
-            placeholder="Last Name"
-            name="lastName"
-            value={lastName}
+            type="email"
+            placeholder="email@address"
+            name="email"
+            value={email}
+            onChange={handleChange}
+          />
+          <input
+            type="number"
+            placeholder="+1 xxx xxx xxxx"
+            name="telephone"
+            value={telephone}
             onChange={handleChange}
           />
           <input
