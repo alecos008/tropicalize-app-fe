@@ -1,0 +1,15 @@
+.products-div {
+  width: 90vw;
+  margin: 0 auto;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}

@@ -50,6 +50,7 @@ function ShippingForm({ cart, whiteUnits, blackUnits }) {
   const handleCheckout = (items, blackQty, whiteQty) => {
     let whiteUnits = Number(whiteQty);
     let blackUnits = Number(blackQty);
+    setShowSuccessMessage(false);
 
     axios
       .post(
@@ -93,10 +94,6 @@ function ShippingForm({ cart, whiteUnits, blackUnits }) {
     setState("");
     setZipcode("");
     setShowSuccessMessage(true);
-  };
-
-  const handleSuccessMessage = () => {
-    setShowSuccessMessage(false);
   };
 
   return (
@@ -162,18 +159,16 @@ function ShippingForm({ cart, whiteUnits, blackUnits }) {
         <div>
           <p>
             You have successfully submited your shipping information. Please
-            proceed to checkout below.
+            proceed to checkout.
           </p>
-          <button onClick={handleSuccessMessage}>Hide Message</button>
+          <button
+            disabled={!isReadyToBuy}
+            onClick={() => handleCheckout(cart, blackUnits, whiteUnits)}
+          >
+            Finish Checkout
+          </button>
         </div>
       )}
-
-      <button
-        onClick={() => handleCheckout(cart, blackUnits, whiteUnits)}
-        disabled={!isReadyToBuy}
-      >
-        Proceed to Checkout
-      </button>
 
       {isShowingPaymentForm && (
         <Payment cart={cart} whiteUnits={whiteUnits} blackUnits={blackUnits} />

@@ -1,6 +1,6 @@
 .navbar {
   width: 100vw;
-  height: 10vh;
+  height: 12vh;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -9,4 +9,8 @@
 
 a {
   text-decoration: none;
+}
+
+.logo-img {
+  height: 120px;
 }

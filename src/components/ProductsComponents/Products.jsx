@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Cart from "./Cart";
+import "./Products.css";
 
 function Products({ addToCart, cart }) {
   //* Defining State
@@ -24,15 +24,21 @@ function Products({ addToCart, cart }) {
   }, []);
 
   return (
-    <div>
+    <div className="products-div">
       {/* {showingCart && <CheckoutForm items={cart} />} */}
 
       {products.map((product) => {
         return (
           <div className="product-card" key={product._id}>
             <h2>{product.name}</h2>
-            <img src={product.image} height="100px" alt="Grinder" />
-            <h2>{product.price} $</h2>
+            <div>
+              <img src={product.image} height="100px" alt="Grinder" />
+              <p>
+                10 to 30 units = 10$<br></br> 31 to 70 units = 9$
+                <br></br> 71 to 100 units = 8$<br></br> 101 to 499 units = 7$
+                <br></br> 500 units or more = 6$
+              </p>
+            </div>
             <button
               onClick={() => {
                 addToCart(product);

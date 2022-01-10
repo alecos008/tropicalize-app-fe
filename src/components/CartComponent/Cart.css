@@ -1,0 +1,25 @@
+.cart-div {
+  min-height: 30vh;
+}
+
+.item-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 99vw;
+  height: 50%;
+  border: 1px solid black;
+}
+
+.item-qty-dlt {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  justify-content: space-evenly;
+  height: 40%;
+}
+
+.qty-input {
+  width: 72%;
+}
