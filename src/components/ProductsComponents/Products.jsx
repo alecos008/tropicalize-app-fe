@@ -4,10 +4,7 @@ import Cart from "./Cart";
 
 function Products({ addToCart, cart }) {
   //* Defining State
-  /* const [isLoading, setIsLoading] = useState(false); */
   const [products, setProducts] = useState([]);
-
-  /*   const [showingCart, setShowingCart] = useState(false); */
 
   const handleProducts = () => {
     axios
@@ -21,10 +18,6 @@ function Products({ addToCart, cart }) {
         console.log(err);
       });
   };
-
-  /*  const showCart = () => {
-    setShowingCart(!showingCart);
-  }; */
 
   useEffect(() => {
     handleProducts();
