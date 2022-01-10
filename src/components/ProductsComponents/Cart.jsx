@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import axios from "axios";
-import Payment from "./Payment";
+import ShippingForm from "./ShippingForm";
 
 function Cart({ cart }) {
-  const [whiteUnits, setWhiteUnits] = useState(null);
-  const [blackUnits, setBlackUnits] = useState(null);
-  const [isReadyToBuy, setIsReadyToBuy] = useState(false);
-  const [isShowingPaymentForm, setShowPaymentForm] = useState(false);
+  const [whiteUnits, setWhiteUnits] = useState(0);
+  const [blackUnits, setBlackUnits] = useState(0);
+  const [isQtySelected, setIsQtySelected] = useState(false);
+  const [isShowingShippingForm, setShowShippingForm] = useState(false);
 
   const handleChange = ({ target: { name, value } }) => {
     if (name.includes("White")) {
@@ -15,24 +14,7 @@ function Cart({ cart }) {
       setBlackUnits(value);
     }
 
-    whiteUnits || blackUnits ? setIsReadyToBuy(true) : setIsReadyToBuy(false);
-  };
-
-  const handleCheckout = (items, blackQty, whiteQty) => {
-    let whiteUnits = Number(whiteQty);
-    let blackUnits = Number(blackQty);
-
-    axios
-      .post(
-        `${process.env.REACT_APP_API_HOST}/payments/create-payment-intent`,
-        { items, blackUnits, whiteUnits }
-      )
-      .then((result) => {
-        setShowPaymentForm(true);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    whiteUnits || blackUnits ? setIsQtySelected(true) : setIsQtySelected(false);
   };
 
   return (
@@ -41,28 +23,35 @@ function Cart({ cart }) {
       {cart.map((item) => {
         return (
           <div key={item._id}>
-            <h5>{item.name} - Enter Amount Below</h5>
+            <h5>{item.name}</h5>
             <input
               type="number"
               name={[item.name]}
               onChange={handleChange}
               min={0}
+              placeholder="Enter Desired Quantity"
             />
           </div>
         );
       })}
-      <button
-        onClick={() => handleCheckout(cart, blackUnits, whiteUnits)}
-        disabled={!isReadyToBuy}
-      >
-        Proceed to Checkout
-      </button>
-      {!isReadyToBuy
-        ? "Please select a quantity to proceed with your order"
-        : ""}
 
-      {isShowingPaymentForm && (
-        <Payment cart={cart} whiteUnits={whiteUnits} blackUnits={blackUnits} />
+      {!isQtySelected &&
+        "Please select the desired order quantity before proceeding"}
+      {!isShowingShippingForm && (
+        <button
+          disabled={!isQtySelected}
+          onClick={() => setShowShippingForm(!isShowingShippingForm)}
+        >
+          Go to Shipping Form
+        </button>
+      )}
+
+      {isShowingShippingForm && (
+        <ShippingForm
+          cart={cart}
+          whiteUnits={whiteUnits}
+          blackUnits={blackUnits}
+        />
       )}
     </div>
   );
