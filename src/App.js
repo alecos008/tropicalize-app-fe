@@ -15,7 +15,10 @@ function App() {
     <div className="App">
       <Navbar cart={cart} />
       <Routes>
-        <Route path="/products" element={<Products addToCart={addToCart} />} />
+        <Route
+          path="/products"
+          element={<Products addToCart={addToCart} cart={cart} />}
+        />
       </Routes>
     </div>
   );

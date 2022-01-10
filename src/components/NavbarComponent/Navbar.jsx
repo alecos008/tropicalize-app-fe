@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Cart from "../ProductsComponents/Cart";
+import "./Navbar.css";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
 function Navbar({ cart }) {
   const [showingCart, setShowingCart] = useState(false);
@@ -9,14 +11,12 @@ function Navbar({ cart }) {
   };
   return (
     <div>
-      <nav>
+      <nav className="navbar">
         <a href="/">Home</a>
         <a href="/animations">Animations</a>
         <a href="/products">Shop</a>
         <a href="/map">Map</a>
-        <button onClick={handleShowCart}>
-          {cart.length > 0 ? `${cart.length}items in cart` : ""}
-        </button>
+        <AiOutlineShoppingCart onClick={handleShowCart} />
       </nav>
 
       {showingCart && <Cart cart={cart} />}

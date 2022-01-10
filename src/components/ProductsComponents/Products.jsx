@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Cart from "./Cart";
 
-function Products({ addToCart }) {
+function Products({ addToCart, cart }) {
   //* Defining State
   /* const [isLoading, setIsLoading] = useState(false); */
   const [products, setProducts] = useState([]);
@@ -44,7 +45,7 @@ function Products({ addToCart }) {
                 addToCart(product);
               }}
             >
-              Add to Cart
+              {cart.includes(product) ? "Item added" : "Add Item To Cart"}
             </button>
           </div>
         );
