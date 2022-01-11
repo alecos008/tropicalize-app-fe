@@ -2,7 +2,13 @@ import React, { useState } from "react";
 import axios from "axios";
 import Payment from "./Payment";
 
-function ShippingForm({ cart, whiteUnits, blackUnits }) {
+function ShippingForm({
+  cart,
+  whiteUnits,
+  blackUnits,
+  pineyUnits,
+  tropiUnits,
+}) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [telephone, setTelephone] = useState("");
@@ -47,15 +53,17 @@ function ShippingForm({ cart, whiteUnits, blackUnits }) {
       : setReadyToSubmitShippingInfo(false);
   };
 
-  const handleCheckout = (items, blackQty, whiteQty) => {
+  const handleCheckout = (items, blackQty, whiteQty, pineyQty, tropiQty) => {
     let whiteUnits = Number(whiteQty);
     let blackUnits = Number(blackQty);
+    let pineyUnits = Number(pineyQty);
+    let tropiUnits = Number(tropiQty);
     setShowSuccessMessage(false);
 
     axios
       .post(
         `${process.env.REACT_APP_API_HOST}/payments/create-payment-intent`,
-        { items, blackUnits, whiteUnits }
+        { items, blackUnits, whiteUnits, pineyUnits, tropiUnits }
       )
       .then((result) => {
         setShowPaymentForm(true);
@@ -163,7 +171,15 @@ function ShippingForm({ cart, whiteUnits, blackUnits }) {
           </p>
           <button
             disabled={!isReadyToBuy}
-            onClick={() => handleCheckout(cart, blackUnits, whiteUnits)}
+            onClick={() =>
+              handleCheckout(
+                cart,
+                blackUnits,
+                whiteUnits,
+                pineyUnits,
+                tropiUnits
+              )
+            }
           >
             Finish Checkout
           </button>
@@ -171,7 +187,13 @@ function ShippingForm({ cart, whiteUnits, blackUnits }) {
       )}
 
       {isShowingPaymentForm && (
-        <Payment cart={cart} whiteUnits={whiteUnits} blackUnits={blackUnits} />
+        <Payment
+          cart={cart}
+          whiteUnits={whiteUnits}
+          blackUnits={blackUnits}
+          pineyUnits={pineyUnits}
+          tropiUnits={tropiUnits}
+        />
       )}
     </div>
   );

@@ -6,6 +6,8 @@ import { AiOutlineDelete } from "react-icons/ai";
 function Cart({ cart, isShowingCart, setShowingCart }) {
   const [whiteUnits, setWhiteUnits] = useState(0);
   const [blackUnits, setBlackUnits] = useState(0);
+  const [pineyUnits, setPineyUnits] = useState(0);
+  const [tropiUnits, setTropiUnits] = useState(0);
   const [isQtySelected, setIsQtySelected] = useState(false);
   const [isShowingShippingForm, setShowShippingForm] = useState(false);
 
@@ -14,9 +16,15 @@ function Cart({ cart, isShowingCart, setShowingCart }) {
       setWhiteUnits(value);
     } else if (name.includes("Black")) {
       setBlackUnits(value);
+    } else if (name.includes("Piney")) {
+      setPineyUnits(value);
+    } else if (name.includes("Tropi")) {
+      setTropiUnits(value);
     }
 
-    whiteUnits || blackUnits ? setIsQtySelected(true) : setIsQtySelected(false);
+    whiteUnits || blackUnits || pineyUnits || tropiUnits
+      ? setIsQtySelected(true)
+      : setIsQtySelected(false);
   };
 
   const handleShippingForm = () => {
@@ -60,6 +68,8 @@ function Cart({ cart, isShowingCart, setShowingCart }) {
           cart={cart}
           whiteUnits={whiteUnits}
           blackUnits={blackUnits}
+          tropiUnits={tropiUnits}
+          pineyUnits={pineyUnits}
         />
       )}
     </div>

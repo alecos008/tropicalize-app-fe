@@ -14,7 +14,13 @@ const stripePromise = loadStripe(
   "pk_test_51K0OW2JUf2t563ByS7Wga2395xnNb09YaqaeXzuhRBvvIrO9Q1drMXao0oxhG9hOC1rQcG1dlTN1vLd8ADjD2OAV00Tw13lMmD"
 );
 
-export default function Payment({ cart, whiteUnits, blackUnits }) {
+export default function Payment({
+  cart,
+  whiteUnits,
+  blackUnits,
+  pineyUnits,
+  tropiUnits,
+}) {
   const [clientSecret, setClientSecret] = useState("");
 
   useEffect(() => {
@@ -22,7 +28,13 @@ export default function Payment({ cart, whiteUnits, blackUnits }) {
     fetch(`${process.env.REACT_APP_API_HOST}/payments/create-payment-intent`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ items: [cart], whiteUnits, blackUnits }),
+      body: JSON.stringify({
+        items: [cart],
+        whiteUnits,
+        blackUnits,
+        pineyUnits,
+        tropiUnits,
+      }),
     })
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));

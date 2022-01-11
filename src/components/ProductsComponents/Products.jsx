@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Products.css";
+import { Carousel, CarouselItem } from "react-bootstrap";
 
 function Products({ addToCart, cart }) {
   //* Defining State
@@ -32,12 +33,7 @@ function Products({ addToCart, cart }) {
           <div className="product-card" key={product._id}>
             <h2>{product.name}</h2>
             <div>
-              <img src={product.image} height="100px" alt="Grinder" />
-              <p>
-                10 to 30 units = 10$<br></br> 31 to 70 units = 9$
-                <br></br> 71 to 100 units = 8$<br></br> 101 to 499 units = 7$
-                <br></br> 500 units or more = 6$
-              </p>
+              <img src={product.image1} height="100px" alt="Grinder" />
             </div>
             <button
               onClick={() => {
