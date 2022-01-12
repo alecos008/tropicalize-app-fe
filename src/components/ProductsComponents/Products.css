@@ -13,3 +13,7 @@
   flex-direction: row;
   justify-content: space-evenly;
 }
+
+.product-img {
+  height: 240px;
+}

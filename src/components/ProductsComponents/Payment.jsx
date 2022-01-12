@@ -22,6 +22,7 @@ export default function Payment({
   tropiUnits,
 }) {
   const [clientSecret, setClientSecret] = useState("");
+  const [total, setTotal] = useState(0);
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
@@ -37,7 +38,10 @@ export default function Payment({
       }),
     })
       .then((res) => res.json())
-      .then((data) => setClientSecret(data.clientSecret));
+      .then((data) => {
+        setClientSecret(data.clientSecret);
+        setTotal(data.amount);
+      });
   }, [cart, whiteUnits, blackUnits]);
 
   const appearance = {
@@ -52,7 +56,7 @@ export default function Payment({
     <div className="App">
       {clientSecret && (
         <Elements options={options} stripe={stripePromise}>
-          <CheckoutForm />
+          <CheckoutForm total={total} />
         </Elements>
       )}
     </div>

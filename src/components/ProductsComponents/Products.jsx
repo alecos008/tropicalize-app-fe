@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Products.css";
-import { Carousel, CarouselItem } from "react-bootstrap";
 
 function Products({ addToCart, cart }) {
   //* Defining State
@@ -33,7 +32,7 @@ function Products({ addToCart, cart }) {
           <div className="product-card" key={product._id}>
             <h2>{product.name}</h2>
             <div>
-              <img src={product.image1} height="100px" alt="Grinder" />
+              <img src={product.image1} className="product-img" alt="Grinder" />
             </div>
             <button
               onClick={() => {

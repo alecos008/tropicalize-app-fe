@@ -5,7 +5,7 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 
-export default function CheckoutForm() {
+export default function CheckoutForm({ total }) {
   const stripe = useStripe();
   const elements = useElements();
 
@@ -13,6 +13,7 @@ export default function CheckoutForm() {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    console.log(total);
     if (!stripe) {
       return;
     }
@@ -82,7 +83,11 @@ export default function CheckoutForm() {
       <PaymentElement id="payment-element" />
       <button disabled={isLoading || !stripe || !elements} id="submit">
         <span id="button-text">
-          {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
+          {isLoading ? (
+            <div className="spinner" id="spinner"></div>
+          ) : (
+            `Pay now ${total / 100} $`
+          )}
         </span>
       </button>
       {/* Show any error or success messages */}

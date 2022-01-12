@@ -32,7 +32,7 @@ function Navbar({ cart }) {
         <Cart
           cart={cart}
           showingCart={showingCart}
-          setShowingCart={setShowingCart}
+          handleShowCart={handleShowCart}
         />
       )}
     </div>

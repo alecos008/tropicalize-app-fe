@@ -3,7 +3,7 @@ import ShippingForm from "../ProductsComponents/ShippingForm";
 import "./Cart.css";
 import { AiOutlineDelete } from "react-icons/ai";
 
-function Cart({ cart, isShowingCart, setShowingCart }) {
+function Cart({ cart, isShowingCart, handleShowCart }) {
   const [whiteUnits, setWhiteUnits] = useState(0);
   const [blackUnits, setBlackUnits] = useState(0);
   const [pineyUnits, setPineyUnits] = useState(0);
@@ -29,7 +29,7 @@ function Cart({ cart, isShowingCart, setShowingCart }) {
 
   const handleShippingForm = () => {
     setShowShippingForm(!isShowingShippingForm);
-    setShowingCart(!isShowingCart);
+    /*  handleShowCart(!isShowingCart); We use this to hide the cart, but hides the form as well */
   };
 
   return (

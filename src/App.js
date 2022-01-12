@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router";
 import Navbar from "./components/NavbarComponent/Navbar";
 
 import Products from "./components/ProductsComponents/Products";
+import ShippingForm from "./components/ProductsComponents/ShippingForm";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -19,6 +20,7 @@ function App() {
           path="/products"
           element={<Products addToCart={addToCart} cart={cart} />}
         />
+        <Route path="/shipping-form" element={<ShippingForm />} />
       </Routes>
     </div>
   );
