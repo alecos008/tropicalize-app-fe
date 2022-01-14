@@ -14,3 +14,7 @@ a {
 .logo-img {
   height: 120px;
 }
+
+.nav-link {
+  display: none;
+}

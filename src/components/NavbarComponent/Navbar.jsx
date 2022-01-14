@@ -1,14 +1,21 @@
 import React, { useState } from "react";
 import Cart from "../CartComponent/Cart";
 import "./Navbar.css";
-import { AiOutlineShoppingCart } from "react-icons/ai";
+import { AiOutlineShoppingCart, AiFillAppstore } from "react-icons/ai";
+import NavbarMenu from "./NavbarMenu";
 
 function Navbar({ cart }) {
   const [showingCart, setShowingCart] = useState(false);
+  const [showingMenu, setShowingMenu] = useState(false);
 
   const handleShowCart = () => {
     setShowingCart(!showingCart);
   };
+
+  const handleMenu = () => {
+    setShowingMenu(!showingMenu);
+  };
+
   return (
     <div>
       <nav className="navbar">
@@ -19,13 +26,25 @@ function Navbar({ cart }) {
             alt="Tropicalize Logo"
           />
         </a>
-        <a href="/animations">Animations</a>
-        <a href="/products">Shop</a>
-        <a href="/map">Map</a>
-        <span>
-          <AiOutlineShoppingCart onClick={handleShowCart} />
-          {cart.length}
-        </span>
+        <a href="/animations" className="nav-link">
+          Animations
+        </a>
+        <a href="/products" className="nav-link">
+          Shop
+        </a>
+        <a href="/map" className="nav-link">
+          Map
+        </a>
+        {cart.length > 0 && (
+          <span className="cart">
+            <AiOutlineShoppingCart onClick={handleShowCart} size={25} />
+            {cart.length}
+          </span>
+        )}
+
+        <AiFillAppstore size={25} onClick={handleMenu} />
+
+        {showingMenu && <NavbarMenu />}
       </nav>
 
       {showingCart && (
