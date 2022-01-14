@@ -4,6 +4,7 @@ import { Elements } from "@stripe/react-stripe-js";
 
 import CheckoutForm from "./CheckoutForm";
 import "./Payment.css";
+import axios from "axios";
 
 // Make sure to call loadStripe outside of a component’s render to avoid
 // recreating the Stripe object on every render.
@@ -42,7 +43,7 @@ export default function Payment({
         setClientSecret(data.clientSecret);
         setTotal(data.amount);
       });
-  }, [cart, whiteUnits, blackUnits]);
+  }, [cart, whiteUnits, blackUnits, tropiUnits, pineyUnits]);
 
   const appearance = {
     theme: "stripe",

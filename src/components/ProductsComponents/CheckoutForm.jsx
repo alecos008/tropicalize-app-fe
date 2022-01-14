@@ -13,7 +13,6 @@ export default function CheckoutForm({ total }) {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    console.log(total);
     if (!stripe) {
       return;
     }
@@ -43,7 +42,7 @@ export default function CheckoutForm({ total }) {
           break;
       }
     });
-  }, [stripe]);
+  }, [stripe, elements, total]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -60,7 +59,7 @@ export default function CheckoutForm({ total }) {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: "http://localhost:3000",
+        return_url: "http://localhost:3000/new-order-completed",
       },
     });
 
