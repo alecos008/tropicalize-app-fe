@@ -16,7 +16,7 @@ const appReducer = (state, action) => {
   }
 };
 //  
-const createNew = (dispatch) => {
+const getProductQuantity = (dispatch) => {
   return async (fullobject) => {
     try {
       // console.log(resJson);
@@ -48,7 +48,7 @@ const clearCart = (dispatch) => {
 export const { Context, Provider } = createDataContext(
   appReducer,
   {
-    createNew,
+    getProductQuantity,
     clearCart,
   },
   []
