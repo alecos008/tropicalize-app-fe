@@ -41,7 +41,7 @@ function App() {
             padding: "0 1rem",
           }}
         >
-          <Icon name="bars" size="big" style={{ padding: "1rem" }} onClick={activeHelper} />
+          <Icon name="bars" size="big" style={{ padding: "1rem" , marginRight:'3rem'}} onClick={activeHelper} />
         </div>
         <Navbar
           cart={cart}
