@@ -1,15 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import ShippingForm from "../ProductsComponents/ShippingForm";
 import "./Cart.css";
 import { AiOutlineDelete } from "react-icons/ai";
+import { Context } from "./ContextAPI/AppProvider";
 
 function Cart({ cart, isShowingCart, handleShowCart }) {
-  /* const [cartUnits, setCartUnits] = useState({
-    white: 0,
-    black: 0,
-    tropi: 0,
-    piney: 0
-  }) */
+
   const [whiteUnits, setWhiteUnits] = useState(0);
   const [blackUnits, setBlackUnits] = useState(0);
   const [pineyUnits, setPineyUnits] = useState(0);

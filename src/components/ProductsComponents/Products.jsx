@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { Context } from "../../ContextAPI/AppProvider";
 import { Image } from "semantic-ui-react";
 import axios from "axios";
 import "./Products.css";
 
 function Products({ addToCart, cart }) {
+  const { state, addOne } = useContext(Context);
   //* Defining State
   const [products, setProducts] = useState([]);
 
@@ -30,10 +32,14 @@ function Products({ addToCart, cart }) {
         {/* {showingCart && <CheckoutForm items={cart} />} */}
         <div
           className="products-container"
-          style={{ minWidth: 0, flexDirection: "column", justifyContent:'flex-start' }}
+          style={{
+            minWidth: 0,
+            flexDirection: "column",
+            justifyContent: "flex-start",
+          }}
         >
           <Image
-            src="https://res.cloudinary.com/alecos008/image/upload/v1641843490/tropi-letters_fwyntk.png"
+            src="https://res.cloudinary.com/alecos008/image/upload/v1642285227/pina_sin_titulo_vector_qs6klb.png"
             size="huge"
           />
         </div>

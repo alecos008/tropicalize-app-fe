@@ -15,13 +15,13 @@ const appReducer = (state, action) => {
       return state;
   }
 };
-//  
+//
 const getProductQuantity = (dispatch) => {
-  return async (fullobject) => {
+  return async () => {
     try {
       // console.log(resJson);
       //   let data = JSON.parse(resJson.trim());
-      let data = [];
+      let data = { white: 0, black: 0, tropi: 0, piney: 0 };
       dispatch({
         type: "get_products",
         payload: data,
@@ -31,6 +31,24 @@ const getProductQuantity = (dispatch) => {
       dispatch({
         type: "get_products",
         payload: { fail: true, created: false },
+      });
+    }
+  };
+};
+
+const addOne = (dispatch) => {
+  return async (fullobject, grinderType) => {
+    fullobject[`${grinderType}`] += 1;
+    let data = fullobject;
+    try {
+      dispatch({
+        type: "get_products",
+        payload: data,
+      });
+    } catch (err) {
+      dispatch({
+        type: "get_products",
+        payload: { fail: true },
       });
     }
   };
@@ -50,6 +68,7 @@ export const { Context, Provider } = createDataContext(
   {
     getProductQuantity,
     clearCart,
+    addOne,
   },
   []
 );
