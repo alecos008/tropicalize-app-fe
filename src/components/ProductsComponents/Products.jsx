@@ -44,7 +44,7 @@ function Products({ addToCart, cart }) {
           />
         </div>
         <div
-          className="products-container scroller"
+          className="products-container "
           style={{ minWidth: 0, flexDirection: "column" }}
         >
           {products.map((product) => {
@@ -60,7 +60,8 @@ function Products({ addToCart, cart }) {
                 </div>
                 <button
                   onClick={() => {
-                    addToCart(product);
+                    addOne(state, product.type);
+                    console.log(state);
                   }}
                 >
                   {cart.includes(product) ? "Item added" : "Add Item To Cart"}
