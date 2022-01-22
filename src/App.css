@@ -10,3 +10,13 @@ body {
   align-items: center;
   min-width: 100vw !important;
 }
+
+/*  Semantic UI OVerrides */
+
+.ui.visible.scale.down.sidebar {
+  background: rgba(240, 46, 170, 1);
+}
+
+.sidebar:nth-child(1n) {
+  border: 1px solid white!important;
+}
