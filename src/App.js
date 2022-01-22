@@ -12,8 +12,7 @@ import HomeScreen from "./screens/home";
 //
 function App() {
   const { state, clearCart } = useContext(Context);
-  //
-  const [cart, setCart] = useState([]);
+  // 
   const [activeSideBar, setActiveSideBar] = useState(false);
   function activeHelper(){
     setActiveSideBar(!activeSideBar)
@@ -22,11 +21,9 @@ function App() {
   useEffect(() => {
     clearCart();
   }, []);
-  //
-  const addToCart = (item) => {
-    cart.includes(item) ? console.log(item) : setCart([item, ...cart]);
-  };
+  // 
   // console.log(state)
+  //
   if (state) {
     return (
       <div className="App">
@@ -43,8 +40,7 @@ function App() {
         >
           <Icon name="bars" size="big" style={{ padding: "1rem" , marginRight:'3rem'}} onClick={activeHelper} />
         </div>
-        <Navbar
-          cart={cart}
+        <Navbar 
           activeHelper={activeHelper}
           activeSideBar={activeSideBar}
           AppContent={
@@ -52,7 +48,7 @@ function App() {
               <Route path="/" element={<HomeScreen />} />
               <Route
                 path="/products"
-                element={<Products addToCart={addToCart} cart={cart} />}
+                element={<Products  />}
               />
               <Route path="/shipping-form" element={<ShippingForm />} />
             </Routes>

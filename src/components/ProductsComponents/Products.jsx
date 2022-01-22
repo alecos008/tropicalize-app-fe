@@ -4,7 +4,7 @@ import { Image } from "semantic-ui-react";
 import axios from "axios";
 import "./Products.css";
 
-function Products({ addToCart, cart }) {
+function Products({ cart }) {
   const { state, addOne } = useContext(Context);
   //* Defining State
   const [products, setProducts] = useState([]);
@@ -15,6 +15,7 @@ function Products({ addToCart, cart }) {
         withCredentials: true,
       })
       .then((response) => {
+        console.log(response);
         setProducts([...response.data.products]);
       })
       .catch((err) => {
@@ -25,7 +26,9 @@ function Products({ addToCart, cart }) {
   useEffect(() => {
     handleProducts();
   }, []);
-
+  //
+  console.log(state);
+  //
   return (
     <div className="products-container">
       <div className="products-div">
@@ -61,10 +64,12 @@ function Products({ addToCart, cart }) {
                 <button
                   onClick={() => {
                     addOne(state, product.type);
-                    console.log(state);
+                    console.log('Heree ',state);
                   }}
                 >
-                  {cart.includes(product) ? "Item added" : "Add Item To Cart"}
+                  {/* {state.cart.includes(product)
+                    ? "Item added"
+                    : "Add Item To Cart"} */}
                 </button>
               </div>
             );
