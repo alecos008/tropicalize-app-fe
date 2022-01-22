@@ -6,25 +6,25 @@ import { Routes, Route } from "react-router";
 import Navbar from "./components/NavbarComponent/NavbarSemantic";
 import { Context } from "./ContextAPI/AppProvider";
 //
-import Products from "./components/ProductsComponents/Products";
-import ShippingForm from "./components/ProductsComponents/ShippingForm";
+import Products from "./screens/Products";
+import Cart from "./screens/Cart";
 import HomeScreen from "./screens/home";
 //
 function App() {
-  const { state, clearCart } = useContext(Context);
+  const { state, cleanCart } = useContext(Context);
   // 
+  useEffect(() => {
+    cleanCart()
+  }, [])
+  //
   const [activeSideBar, setActiveSideBar] = useState(false);
-  function activeHelper(){
+  function activeHelper(e){
+    e.preventDefault()
     setActiveSideBar(!activeSideBar)
   }
   //
-  useEffect(() => {
-    clearCart();
-  }, []);
-  // 
-  // console.log(state)
-  //
   if (state) {
+    console.log('State from app js', state)
     return (
       <div className="App">
         <div
@@ -50,7 +50,9 @@ function App() {
                 path="/products"
                 element={<Products  />}
               />
-              <Route path="/shipping-form" element={<ShippingForm />} />
+              
+              <Route path="/cart" element={<Cart />} />
+              {/* <Route path="/shipping-form" element={<ShippingForm />} /> */}
             </Routes>
           }
         />

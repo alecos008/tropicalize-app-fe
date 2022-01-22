@@ -40,6 +40,16 @@ function NavbarSemantic({ AppContent, activeHelper, activeSideBar }) {
             Products
           </a>
         </Menu.Item>
+        <Menu.Item as="a">
+          <a
+            href="/cart"
+            style={{ textDecoration: "none" }}
+            className="sidebar-link ui.labeled.icon.menu item"
+          >
+            <Icon name="cart" />
+            Cart
+          </a>
+        </Menu.Item>
         {/* <Menu.Item as="a">
           <a
             href="/animations"
@@ -83,12 +93,16 @@ function NavbarSemantic({ AppContent, activeHelper, activeSideBar }) {
             <Icon name="facebook" />
             Facebook
           </a>
-        </Menu.Item> 
+        </Menu.Item>
       </Sidebar>
 
       {/* Page Content and Router Below Here */}
       <Sidebar.Pushable>
-        <Sidebar.Pusher dimmed={activeSideBar}>{AppContent}</Sidebar.Pusher>
+        <Sidebar.Pusher
+        //dimmed={activeSideBar}
+        >
+          {AppContent}
+        </Sidebar.Pusher>
       </Sidebar.Pushable>
     </>
   );

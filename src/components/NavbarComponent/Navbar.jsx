@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Cart from "../CartComponent/Cart";
+import Cart from "../../screens/Cart";
 import "./Navbar.css";
 import { AiOutlineShoppingCart, AiFillAppstore } from "react-icons/ai";
 import NavbarMenu from "./NavbarMenu";
