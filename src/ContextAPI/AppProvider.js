@@ -54,7 +54,7 @@ const getProducts = (dispatch) => {
     //
     //  Delete Local Storage cart
     //
-    const data = axios
+    const data = await axios
       .get(`${process.env.REACT_APP_API_HOST}/products/all`, {
         withCredentials: true,
       })

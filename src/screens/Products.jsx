@@ -8,13 +8,13 @@ function Products() {
   const { state, addOne, getProducts } = useContext(Context);
   //
   useEffect(() => {
+    console.log('useEfffect!!!')
     getProducts();
   }, []);
   //
   if (state.cart !== undefined && state.products !== undefined) {
     //
-    console.log("State from Products", state);
-    // console.log('Products Res', products)
+    console.log("State from Products", state); 
     //
     return (
       <div className="products-container">
