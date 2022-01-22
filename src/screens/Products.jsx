@@ -10,7 +10,7 @@ function Products() {
   useEffect(() => {
     console.log('useEfffect!!!')
     getProducts();
-  }, []);
+  }, []); // 
   //
   if (state.cart !== undefined && state.products !== undefined) {
     //
