@@ -11,20 +11,16 @@ import Cart from "./screens/Cart";
 import HomeScreen from "./screens/home";
 //
 function App() {
-  const { state, cleanCart } = useContext(Context);
-  // 
-  useEffect(() => {
-    cleanCart()
-  }, [])
+  const { state } = useContext(Context);
   //
   const [activeSideBar, setActiveSideBar] = useState(false);
-  function activeHelper(e){
-    e.preventDefault()
-    setActiveSideBar(!activeSideBar)
+  function activeHelper(e) {
+    e.preventDefault();
+    setActiveSideBar(!activeSideBar);
   }
   //
   if (state) {
-    console.log('State from app js', state)
+    console.log("State from app js", state);
     return (
       <div className="App">
         <div
@@ -38,19 +34,21 @@ function App() {
             padding: "0 1rem",
           }}
         >
-          <Icon name="bars" size="big" style={{ padding: "1rem" , marginRight:'3rem'}} onClick={activeHelper} />
+          <Icon
+            name="bars"
+            size="big"
+            style={{ padding: "1rem", marginRight: "3rem" }}
+            onClick={activeHelper}
+          />
         </div>
-        <Navbar 
+        <Navbar
           activeHelper={activeHelper}
           activeSideBar={activeSideBar}
           AppContent={
             <Routes>
               <Route path="/" element={<HomeScreen />} />
-              <Route
-                path="/products"
-                element={<Products  />}
-              />
-              
+              <Route path="/products" element={<Products />} />
+
               <Route path="/cart" element={<Cart />} />
               {/* <Route path="/shipping-form" element={<ShippingForm />} /> */}
             </Routes>

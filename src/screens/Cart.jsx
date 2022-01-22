@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import ShippingForm from "../components/ProductsComponents/ShippingForm";
 import "./Cart.css";
 import { AiOutlineDelete } from "react-icons/ai";
@@ -6,10 +6,14 @@ import { Context } from "../ContextAPI/AppProvider";
 
 function Cart() {
   //
-  const { state } = useContext(Context);
+  const { state, generateCartFromStorage } = useContext(Context);
   const [isQtySelected, setIsQtySelected] = useState(false);
   const [isShowingShippingForm, setShowShippingForm] = useState(false);
-
+  //
+  useEffect(() => {
+    generateCartFromStorage();
+  }, []);
+  //
   const handleChange = ({ target: { name, value } }) => {
     if (name.includes("White")) {
       // setWhiteUnits(value);
@@ -31,17 +35,18 @@ function Cart() {
     /*  handleShowCart(!isShowingCart); We use this to hide the cart, but hides the form as well */
   };
   //
-  console.log("State from carts   ",state)
+  console.log("State from carts   ", state);
   //
   if (state.cart !== undefined && state.cart.hasProducts) {
     return (
-      <div className="cart-div"> 
-
+      <div className="cart-div">
         {Object.keys(state.cart).map((item) => {
           if (item !== "fail" && item !== "hasProducts") {
             return (
               <div key={item} className="item-card">
-                <h4>{item}</h4>
+                <h4>
+                  {item} {state.cart[`${item}`]}
+                </h4>
                 <div className="item-qty-dlt">
                   {/* <input
                     className="qty-input"
@@ -52,7 +57,6 @@ function Cart() {
                     placeholder="Enter Desired Quantity"
                   /> */}
                   {/* <AiOutlineDelete /> */}
-                  <p>{state.cart[`${state.cart[`${item}`]}`]}</p>
                 </div>
               </div>
             );

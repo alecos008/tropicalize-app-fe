@@ -29,16 +29,45 @@ const cleanCart = (dispatch) => {
       tropi: 0,
       piney: 0,
     };
-    if (localStorage.getItem("cart") !== null) {
-      res = localStorage.getItem("cart");
-    } else {
-      localStorage.removeItem("cart");
-    }
+    //
+    // localStorage.removeItem("hasProducts");
+    // localStorage.removeItem("white");
+    // localStorage.removeItem("black");
+    // localStorage.removeItem("tropi");
+    // localStorage.removeItem("piney");
     //
     dispatch({
       type: "clear_cart",
       payload: res,
     });
+  };
+};
+//
+
+const generateCartFromStorage = (dispatch) => {
+  return async () => {
+    //
+    //  Delete Local Storage cart
+    //
+    let data = {
+      fail: false,
+      hasProducts: Boolean(localStorage.getItem("hasProducts")),
+      white: Number(localStorage.getItem("white")),
+      black: Number(localStorage.getItem("black")),
+      tropi: Number(localStorage.getItem("tropi")),
+      piney: Number(localStorage.getItem("piney")),
+    };
+    try {
+      dispatch({
+        type: "get_products",
+        payload: data,
+      });
+    } catch (err) {
+      dispatch({
+        type: "get_products",
+        payload: { fail: true, hasProducts: false },
+      });
+    }
   };
 };
 //
@@ -50,7 +79,8 @@ const addOne = (dispatch) => {
     //
     //  Set Local Storage cart
     //
-    localStorage.setItem("cart", fullobject);
+    localStorage.setItem(grinderType, fullobject[`${grinderType}`]);
+    localStorage.setItem("hasProducts", true);
     let data = fullobject;
     try {
       dispatch({
@@ -70,9 +100,17 @@ export const { Context, Provider } = createDataContext(
   appReducer,
   {
     cleanCart,
+    generateCartFromStorage,
     addOne,
   },
   {
-    cart: localStorage.getItem("cart"),
+    cart: {
+      fail: false,
+      hasProducts: Boolean(localStorage.getItem("hasProducts")),
+      white: Number(localStorage.getItem("white")),
+      black: Number(localStorage.getItem("black")),
+      tropi: Number(localStorage.getItem("tropi")),
+      piney: Number(localStorage.getItem("piney")),
+    },
   }
 );
