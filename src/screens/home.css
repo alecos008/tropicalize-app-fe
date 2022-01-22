@@ -24,6 +24,7 @@
   justify-content: space-bewteen;
   align-items: flex-start;
   min-width: 100%;
+  animation: 2s linear 1s infinite float;
 }
 
 .tropi-container {
@@ -35,23 +36,40 @@
   box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
   border-radius: 16px;
   margin: 3rem;
-  animation:  3s linear 1s infinite mymove;
+  animation: 2s linear 1s infinite mymove;
 }
 
 @keyframes mymove {
-  0%,
-  100% {
-    bottom: 0;
+  0% { 
     background: black;
+    transform: translate(0, 0px);
   }
-  25% {
-    bottom: 100px;
+  25% { 
     background: rgba(240, 46, 170, 1);
+    transform: translate(0, 10px);
   }
   50% {
-      background: rgb(0, 197, 235)
+    background: rgb(0, 197, 235);
+    transform: translate(0, 20px);
   }
-  100%{
-      background:black
+  100% {
+    background: black;
+    transform: translate(0, -0px);
   }
 }
+
+@keyframes float {
+    0% {  
+      transform: translate(0, 0px);
+    }
+    25% {  
+      transform: translate(0, 10px);
+    }
+    50% { 
+      transform: translate(0, 20px);
+    }
+    100% { 
+      transform: translate(0, -0px);
+    }
+  }
+ 
