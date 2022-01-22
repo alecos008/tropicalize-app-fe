@@ -40,29 +40,23 @@ function Cart() {
   if (state.cart !== undefined && state.cart.hasProducts) {
     return (
       <div className="cart-div">
-        {Object.keys(state.cart).map((item) => {
-          if (item !== "fail" && item !== "hasProducts") {
-            return (
-              <div key={item} className="item-card">
-                <h4>
-                  {item} {state.cart[`${item}`]}
-                </h4>
-                <div className="item-qty-dlt">
-                  {/* <input
-                    className="qty-input"
-                    type="number"
-                    name={item}
-                    onChange={handleChange}
-                    min={0}
-                    placeholder="Enter Desired Quantity"
-                  /> */}
-                  {/* <AiOutlineDelete /> */}
-                </div>
-              </div>
-            );
-          }
-          return null;
-        })}
+        <div className="item-card">
+          {Object.keys(state.cart).map((item) => {
+            if (item !== "fail" && item !== "hasProducts") {
+              return (
+                <>
+                  <div key={item} className="item-qty-dlt">
+                    <h3 style={{ textAlign: "center", margin: 0 }}>{item}</h3>
+                    <h3 style={{ textAlign: "center", margin: 0 }}>
+                      {state.cart[`${item}`]}
+                    </h3>
+                  </div>
+                </>
+              );
+            }
+            return null;
+          })}
+        </div>
 
         {/* {!isQtySelected &&
         "Please select the desired order quantity before proceeding"} */}

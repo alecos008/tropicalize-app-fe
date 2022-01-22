@@ -5,19 +5,30 @@
 .item-card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  width: 99vw;
-  height: 50%;
-  border: 1px solid black;
+  min-width: 500px;
+  margin: 1em;
 }
 
 .item-qty-dlt {
   display: flex;
   flex-direction: row;
-  width: 100vw;
-  justify-content: space-evenly;
-  height: 40%;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  padding: 16px;
+  margin: 32px;
+  border: 1px solid rgba(240, 46, 170, 1);
+  width: 100%;
+  height: 80px;
+  border-radius: 16px;
+}
+
+.item-qty-dlt:hover {
+  box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px,
+    rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px,
+    rgba(240, 46, 170, 0.05) 25px 25px;
 }
 
 .qty-input {
