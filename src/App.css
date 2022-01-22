@@ -7,8 +7,9 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   min-width: 100vw !important;
+  background: black;
 }
 
 /*  Semantic UI OVerrides */

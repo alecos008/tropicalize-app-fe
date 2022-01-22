@@ -37,7 +37,7 @@ function App() {
           <Icon
             name="bars"
             size="big"
-            style={{ padding: "1rem", marginRight: "3rem" }}
+            style={{ padding: "1rem", margin: "3rem", color: "white" }}
             onClick={activeHelper}
           />
         </div>

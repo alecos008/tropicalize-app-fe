@@ -1,1 +1,51 @@
- 
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-width: 100vw;
+  min-height: 100vh;
+  background: linear-gradient(180deg, black, rgba(240, 46, 170, 1));
+}
+
+.piney-img {
+  /* box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px!important; */
+  transform: scaleX(-1);
+}
+
+.piney-img > img {
+  transform: rotateX(-15deg) rotateY(30deg);
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+.img-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-bewteen;
+  align-items: flex-start;
+  min-width: 100%;
+}
+
+.tropi-container {
+  /* // display: "flex",
+        // flexDirection: "row",
+        // justifyContent: "flex-start",
+        // alignItems: "flex-start", */
+  padding: 4rem;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
+  border-radius: 16px;
+  margin: 3rem;
+  animation:  3s linear 1s infinite mymove;
+}
+
+@keyframes mymove {
+  0%,
+  100% {
+    bottom: 0;
+    background: black;
+  }
+  50% {
+    bottom: 100px;
+    background: rgba(240, 46, 170, 1);
+  }
+}
