@@ -15,7 +15,6 @@ function Products({ cart }) {
         withCredentials: true,
       })
       .then((response) => {
-        console.log(response);
         setProducts([...response.data.products]);
       })
       .catch((err) => {
@@ -27,7 +26,7 @@ function Products({ cart }) {
     handleProducts();
   }, []);
   //
-  console.log(state);
+
   //
   return (
     <div className="products-container">
@@ -64,7 +63,7 @@ function Products({ cart }) {
                 <button
                   onClick={() => {
                     addOne(state, product.type);
-                    console.log('Heree ',state);
+                    console.log("Heree ", state);
                   }}
                 >
                   {/* {state.cart.includes(product)
