@@ -44,8 +44,14 @@
     bottom: 0;
     background: black;
   }
-  50% {
+  25% {
     bottom: 100px;
     background: rgba(240, 46, 170, 1);
+  }
+  50% {
+      background: rgb(0, 197, 235)
+  }
+  100%{
+      background:black
   }
 }
