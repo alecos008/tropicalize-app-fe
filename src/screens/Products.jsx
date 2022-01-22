@@ -4,30 +4,14 @@ import { Image } from "semantic-ui-react";
 import axios from "axios";
 import "./Products.css";
 
-function Products({ cart }) {
-  const { state, addOne } = useContext(Context);
-  //* Defining State
-  const [products, setProducts] = useState([]);
-
-  const handleProducts = () => {
-    axios
-      .get(`${process.env.REACT_APP_API_HOST}/products/all`, {
-        withCredentials: true,
-      })
-      .then((response) => {
-        setProducts([...response.data.products]);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
+function Products() {
+  const { state, addOne, getProducts } = useContext(Context);
+  //
   useEffect(() => {
-    
-    handleProducts();
+    getProducts();
   }, []);
   //
-  if (state.cart !== undefined) {
+  if (state.cart !== undefined && state.products !== undefined) {
     //
     console.log("State from Products", state);
     // console.log('Products Res', products)
@@ -54,7 +38,7 @@ function Products({ cart }) {
             style={{ minWidth: 0, flexDirection: "column" }}
           >
             {state.cart !== null &&
-              products.map((product) => {
+              state.products.map((product) => {
                 return (
                   <div className="product-card" key={product._id}>
                     <h2>{product.name}</h2>
@@ -67,7 +51,7 @@ function Products({ cart }) {
                     </div>
                     <button
                       onClick={(e) => {
-                        e.preventDefault()
+                        e.preventDefault();
                         console.log("Clicked ", state.cart[`${product.type}`]);
                         addOne(state.cart, product.type);
                       }}
