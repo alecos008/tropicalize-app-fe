@@ -17,7 +17,7 @@ function Products() {
         <div className="figure-container mobile-hidden">
           <Image
             src="https://res.cloudinary.com/alecos008/image/upload/v1642285227/pina_sin_titulo_vector_qs6klb.png"
-            size="huge"
+            size="big"
           />
         </div>
 

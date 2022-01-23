@@ -49,6 +49,24 @@
   height: 240px;
 }
 
+@keyframes mymove {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  25% {
+    transform: translate(0px, 15px);
+  }
+  50% {
+    transform: translate(0px, 0px);
+  }
+  75% {
+    transform: translate(0px, 15px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
 @media (min-width: 800px) {
   .mobile-hidden {
     display: flex;
@@ -63,10 +81,15 @@
     width: 40vw;
   }
   .product-screen {
+    display: flex;
     justify-content: space-around;
     align-items: center;
     height: 90vh;
     width: 100vw;
+  }
+  .figure-container {
+    max-height: 120%;
+    animation: 2s linear 3s infinite mymove;
   }
   .products-container {
     box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
