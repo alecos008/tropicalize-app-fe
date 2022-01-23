@@ -46,8 +46,14 @@ function Cart() {
               return (
                 <>
                   <div key={item} className="item-qty-dlt">
-                    <h3 style={{ textAlign: "center", margin: 0 }}>{item}</h3>
-                    <h3 style={{ textAlign: "center", margin: 0 }}>
+                    <h3
+                      style={{ textAlign: "center", margin: 0, color: "white" }}
+                    >
+                      {item}
+                    </h3>
+                    <h3
+                      style={{ textAlign: "center", margin: 0, color: "white" }}
+                    >
                       {state.cart[`${item}`]}
                     </h3>
                   </div>

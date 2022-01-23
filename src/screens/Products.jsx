@@ -43,7 +43,7 @@ function Products() {
                   >
                     {state.cart.hasProducts === true &&
                     state.cart[`${product.type}`] > 0
-                      ? `Item Added ${state.cart[`${product.type}`]}`
+                      ? `${state.cart[`${product.type}`]} Items Added`
                       : "Add item to cart"}
                   </button>
                 </div>
