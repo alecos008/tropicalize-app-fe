@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import ShippingForm from "../components/ProductsComponents/ShippingForm";
+import ShippingForm from "../components/PaymentComponents/ShippingForm";
 import "./Cart.css";
 import { AiOutlineDelete } from "react-icons/ai";
 import { Context } from "../ContextAPI/AppProvider";
