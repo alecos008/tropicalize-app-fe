@@ -10,13 +10,13 @@ function Products() {
   useEffect(() => {
     getProducts();
   }, []); //
-  //
+  //https://res.cloudinary.com/alecos008/image/upload/c_crop,h_305,w_343/v1642285227/pina_sin_titulo_vector_qs6klb.png
   if (state.cart !== undefined && state.products !== undefined) {
     return (
       <div className="product-screen">
         <div className="figure-container mobile-hidden">
           <Image
-            src="https://res.cloudinary.com/alecos008/image/upload/v1642285227/pina_sin_titulo_vector_qs6klb.png"
+            src="https://res.cloudinary.com/alecos008/image/upload/v1642968688/Logo_copy_tc63hp.png"
             size="big"
           />
         </div>

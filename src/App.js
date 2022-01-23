@@ -5,6 +5,7 @@ import { useState, useContext, useEffect } from "react";
 import { Routes, Route } from "react-router";
 import Navbar from "./components/NavbarComponent/NavbarSemantic";
 import { Context } from "./ContextAPI/AppProvider";
+import { Image } from "semantic-ui-react";
 //
 import Products from "./screens/Products";
 import Cart from "./screens/Cart";
@@ -28,12 +29,16 @@ function App() {
             display: "flex",
             flexDirection: "row",
             minWidth: "100%",
-            justifyContent: "flex-end",
-            alignItems: "flex-end",
-            margin: "0 1rem",
-            padding: "1rem",
+            justifyContent: "space-around",
+            alignItems: "center",
+            minHeight: "10vh",
           }}
         >
+          <Image
+            src="https://res.cloudinary.com/alecos008/image/upload/v1642968054/Titulo_Solo_jcdag0.png"
+            size="medium"
+          />
+
           <Icon
             name="bars"
             size="big"
