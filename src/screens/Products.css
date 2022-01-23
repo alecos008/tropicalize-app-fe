@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: flex-start;
   min-width: 100vw;
+  background: linear-gradient(180deg, black, rgba(240, 46, 170, 1));
 }
 
 .products-div {
@@ -22,7 +23,8 @@
   padding: 1rem;
   border-radius: 8px;
   align-items: center;
-  min-width: 500px;
+  max-width: 90vw;
+  background: white;
   box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px,
     rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px,
     rgba(240, 46, 170, 0.05) 25px 25px;
@@ -38,8 +40,8 @@
   height: 240px;
 }
 
-.scroller{
-  max-height:30vw;
-  overflow-y:scroll;
+.scroller {
+  max-height: 30vw;
+  overflow-y: scroll;
   border-color: 1px solid rgba(240, 46, 170, 0.4);
 }

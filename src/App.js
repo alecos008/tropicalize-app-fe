@@ -31,13 +31,17 @@ function App() {
             justifyContent: "flex-end",
             alignItems: "flex-end",
             margin: "0 1rem",
-            padding: "0 1rem",
+            padding: "1rem",
           }}
         >
           <Icon
             name="bars"
             size="big"
-            style={{ padding: "1rem", marginRight: "3rem" }}
+            style={{
+              padding: "1rem",
+              marginRight: "3rem",
+              color: "rgba(240, 46, 170, 1)",
+            }}
             onClick={activeHelper}
           />
         </div>

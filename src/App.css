@@ -9,6 +9,7 @@ body {
   justify-content: flex-start;
   align-items: center;
   min-width: 100vw !important;
+  background-color: black;
 }
 
 /*  Semantic UI OVerrides */
@@ -18,5 +19,5 @@ body {
 }
 
 .sidebar:nth-child(1n) {
-  border: 1px solid white!important;
+  border: 1px solid white !important;
 }
