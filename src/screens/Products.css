@@ -1,7 +1,7 @@
 .product-screen {
   display: flex;
   flex-direction: row;
-  background: linear-gradient(180deg, black, rgba(240, 46, 170, 1));
+  background: linear-gradient(180deg, black, rgba(252, 77, 158, 1));
   width: 100vw;
   justify-content: center;
 }
