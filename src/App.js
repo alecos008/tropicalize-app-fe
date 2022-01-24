@@ -10,6 +10,7 @@ import { Image } from "semantic-ui-react";
 import Products from "./screens/Products";
 import Cart from "./screens/Cart";
 import HomeScreen from "./screens/home";
+import Checkout from "./screens/Checkout";
 //
 function App() {
   const { state } = useContext(Context);
@@ -59,6 +60,7 @@ function App() {
               <Route path="/products" element={<Products />} />
 
               <Route path="/cart" element={<Cart />} />
+              <Route path="/checkout" element={<Checkout />} />
               {/* <Route path="/shipping-form" element={<ShippingForm />} /> */}
             </Routes>
           }

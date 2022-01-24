@@ -92,8 +92,6 @@
     animation: 2s linear 3s infinite mymove;
   }
   .figure-container > img {
-    /* box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px !important; */
-  }
-  .products-container {
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px !important;
   }
 }

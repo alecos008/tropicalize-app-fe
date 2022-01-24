@@ -11,6 +11,8 @@ function Products() {
     getProducts();
   }, []); //
   //https://res.cloudinary.com/alecos008/image/upload/c_crop,h_305,w_343/v1642285227/pina_sin_titulo_vector_qs6klb.png
+
+  console.log("from prod", state);
   if (state.cart !== undefined && state.products !== undefined) {
     return (
       <div className="product-screen">
@@ -37,8 +39,8 @@ function Products() {
                   <button
                     onClick={(e) => {
                       e.preventDefault();
-                      console.log("Clicked ", state.cart[`${product.type}`]);
                       addOne(state.cart, product.type);
+                      console.log("state.cart after addone click", state.cart);
                     }}
                   >
                     {state.cart.hasProducts === true &&

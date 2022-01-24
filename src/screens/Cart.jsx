@@ -9,11 +9,13 @@ function Cart() {
   const { state, generateCartFromStorage } = useContext(Context);
   const [isQtySelected, setIsQtySelected] = useState(false);
   const [isShowingShippingForm, setShowShippingForm] = useState(false);
+
   //
   useEffect(() => {
     generateCartFromStorage();
   }, []);
   //
+
   const handleChange = ({ target: { name, value } }) => {
     if (name.includes("White")) {
       // setWhiteUnits(value);
@@ -29,14 +31,13 @@ function Cart() {
       ? setIsQtySelected(true)
       : setIsQtySelected(false);
   };
+  //
 
   const handleShippingForm = () => {
     setShowShippingForm(!isShowingShippingForm);
-    /*  handleShowCart(!isShowingCart); We use this to hide the cart, but hides the form as well */
   };
   //
-  console.log("State from carts   ", state);
-  //
+  console.log(" from cart", state);
   if (state.cart !== undefined && state.cart.hasProducts) {
     return (
       <div className="cart-div">
@@ -64,23 +65,7 @@ function Cart() {
           })}
         </div>
 
-        {/* {!isQtySelected &&
-        "Please select the desired order quantity before proceeding"} */}
-        {!isShowingShippingForm && (
-          <button disabled={!isQtySelected} onClick={handleShippingForm}>
-            Go to Shipping Form
-          </button>
-        )}
-
-        {isShowingShippingForm && (
-          <ShippingForm
-            cart={state.cart}
-            whiteUnits={state.cart.white}
-            blackUnits={state.cart.black}
-            tropiUnits={state.cart.tropi}
-            pineyUnits={state.cart.piney}
-          />
-        )}
+        <a href="/checkout">Go To Checkout</a>
       </div>
     );
   } else {
