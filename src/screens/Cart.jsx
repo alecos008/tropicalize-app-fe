@@ -14,33 +14,27 @@ function Cart() {
   }, []);
 
   const handleChange = ({ target: { name, value } }) => {
-    if (name.includes("White")) {
-      // setWhiteUnits(value);
-    } else if (name.includes("Black")) {
-      // setBlackUnits(value);
-    } else if (name.includes("Piney")) {
-      // setPineyUnits(value);
-    } else if (name.includes("Tropi")) {
-      // setTropiUnits(value);
-    }
+    state.cart[name].quantity = value;
   };
   //
 
   //
-
-  if (state.cart !== undefined) {
+  console.log(state.cart);
+  if (state.cart !== undefined && state.cart !== null) {
     return (
       <div className="cart-div">
         {Object.values(state.cart).map((item) => {
-          return (
-            <div>
-              <h4>{item.name}</h4>
-              <Image src={item.image} size="tiny" />
-              <input type="number" min={0} value={item.quantity} />
-            </div>
-          );
+          if (item !== null) {
+            return (
+              <div key={item.id}>
+                <h4>{item.name}</h4>
+                <Image src={item.image} size="tiny" />
+              </div>
+            );
+          } else {
+            return "";
+          }
         })}
-
         <a className="btn-link" href="/checkout">
           Go To Checkout
         </a>

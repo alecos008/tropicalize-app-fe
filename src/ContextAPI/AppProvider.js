@@ -142,6 +142,7 @@ export const { Context, Provider } = createDataContext(
         image:
           "https://res.cloudinary.com/alecos008/image/upload/v1635680349/White_Grinder_cm7vca.jpg",
         quantity: 0,
+        type: "white",
       },
       black: {
         _id: "61aba0e02e2b3c45099951e8",
@@ -149,6 +150,7 @@ export const { Context, Provider } = createDataContext(
         image:
           "https://res.cloudinary.com/alecos008/image/upload/v1635680327/Black_Grinder_gyyzr5.jpg",
         quantity: 0,
+        type: "black",
       },
       piney: {
         _id: "61dd6e6de8e6c9ece63c93ec",
@@ -156,6 +158,7 @@ export const { Context, Provider } = createDataContext(
         image:
           "https://res.cloudinary.com/alecos008/image/upload/v1641850646/ALL_yklipo.png",
         quantity: 0,
+        type: "piney",
       },
       tropi: {
         _id: "61dd6eeae8e6c9ece63c93ed",
@@ -163,6 +166,7 @@ export const { Context, Provider } = createDataContext(
         image:
           "https://res.cloudinary.com/alecos008/image/upload/v1641850720/All_sk8uml.png",
         quantity: 0,
+        type: "tropi",
       },
     },
   }
