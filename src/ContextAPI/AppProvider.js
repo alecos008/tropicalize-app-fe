@@ -105,11 +105,10 @@ const generateCartFromStorage = (dispatch) => {
 const addOne = (dispatch) => {
   return async (fullObj, grinderType) => {
     //
-
     fullObj[grinderType].quantity += 1;
-
+    //
     let data = fullObj;
-    console.log("data:", data, "grinderType:", grinderType);
+    //
     try {
       dispatch({
         type: "get_cart",
@@ -135,15 +134,27 @@ export const { Context, Provider } = createDataContext(
   {
     cart: {
       white: {
+        name: "Tropicalize Silicone-Coated White Grinder",
+        image:
+          "https://res.cloudinary.com/alecos008/image/upload/v1635680349/White_Grinder_cm7vca.jpg",
         quantity: 0,
       },
       black: {
+        name: "Tropicalize Silicone-Coated Black Grinder",
+        image:
+          "https://res.cloudinary.com/alecos008/image/upload/v1635680327/Black_Grinder_gyyzr5.jpg",
         quantity: 0,
       },
       piney: {
+        name: "Tropicalize Small Piney Bio-Grinder",
+        image:
+          "https://res.cloudinary.com/alecos008/image/upload/v1641850646/ALL_yklipo.png",
         quantity: 0,
       },
       tropi: {
+        name: "Tropicalize Small Tropi Bio-Grinder",
+        image:
+          "https://res.cloudinary.com/alecos008/image/upload/v1641850720/All_sk8uml.png",
         quantity: 0,
       },
     },

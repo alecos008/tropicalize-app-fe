@@ -26,7 +26,7 @@ function App() {
     setActiveSideBar(!activeSideBar);
   }
 
-  console.log("state from app", state);
+  /*   console.log("state from app", state); */
   //
   if (state) {
     return (

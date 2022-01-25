@@ -16,7 +16,7 @@ function Products() {
   }, []); //
   //https://res.cloudinary.com/alecos008/image/upload/c_crop,h_305,w_343/v1642285227/pina_sin_titulo_vector_qs6klb.png
 
-  console.log("state from products", state);
+  /*   console.log("state from products", state); */
 
   if (state.products !== undefined && state.cart !== undefined) {
     return (
@@ -44,11 +44,10 @@ function Products() {
                   onClick={() => addOne(state.cart, product.type)}
                   className="product-btn"
                 >
-                  {/* {state.cart.hasProducts === true &&
-                    state.cart[`${product.type}`] > 0
-                      ? `${state.cart[`${product.type}`]} Items Added`
-                      : "Add item to cart"} */}
-                  click me
+                  {console.log(state.cart)}
+                  {state.cart[product.type].quantity > 0
+                    ? "Item added - Select Quantity in Cart"
+                    : "Add Item "}
                 </button>
               </div>
             );
