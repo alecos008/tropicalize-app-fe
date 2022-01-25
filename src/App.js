@@ -13,8 +13,14 @@ import HomeScreen from "./screens/home";
 import CheckoutScreen from "./screens/CheckoutScreen";
 //
 function App() {
-  const { state } = useContext(Context);
+  const { state, getProducts, cleanCart } = useContext(Context);
   //
+
+  useEffect(() => {
+    getProducts();
+    cleanCart(state.products[0], state.products[0].type);
+  }, []);
+
   const [activeSideBar, setActiveSideBar] = useState(false);
   function activeHelper(e) {
     e.preventDefault();

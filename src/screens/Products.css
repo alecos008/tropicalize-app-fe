@@ -39,6 +39,18 @@
     rgba(240, 46, 170, 0.05) 25px 25px;*/
 }
 
+.product-btn {
+  padding: 8px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  border: 1px solid rgb(252, 77, 158);
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  background-color: rgb(252, 77, 158);
+}
+
 .product-card > div {
   display: flex;
   flex-direction: row;
@@ -47,34 +59,6 @@
 
 .product-img {
   height: 240px;
-}
-
-.product-btn {
-  /* margin-bottom: 1vh;
-  padding: 8px;
-  background-color: rgb(252, 77, 158);
-  border-radius: 45px;
-  box-shadow: 0px 10px 19px rgba(0, 0, 0, 0.1);
-  font-size: 16px; */
-  padding: 8px;
-  text-transform: uppercase;
-  letter-spacing: 2.5px;
-  font-weight: 500;
-  color: #000;
-  background-color: #fff;
-  border: none;
-  border-radius: 45px;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease 0s;
-  cursor: pointer;
-  outline: none;
-}
-
-.product-btn:hover {
-  background-color: rgb(252, 77, 158);
-  box-shadow: 0px 15px 20px rgba(252, 77, 158, 0.5);
-  color: #000;
-  transform: translateY(-8px);
 }
 
 @keyframes mymove {
@@ -121,5 +105,26 @@
   }
   .figure-container > img {
     box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px !important;
+  }
+  .product-btn {
+    padding: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .product-btn:hover {
+    background-color: rgb(252, 77, 158);
+    box-shadow: 0px 15px 20px rgba(252, 77, 158, 0.5);
+    color: #000;
+    transform: translateY(-8px);
   }
 }

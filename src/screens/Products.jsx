@@ -12,7 +12,7 @@ function Products() {
   }, []); //
   //https://res.cloudinary.com/alecos008/image/upload/c_crop,h_305,w_343/v1642285227/pina_sin_titulo_vector_qs6klb.png
 
-  console.log("from prod", state);
+  console.log("rerevevweve", state);
   if (state.cart !== undefined && state.products !== undefined) {
     return (
       <div className="product-screen">

@@ -23,17 +23,16 @@ const appReducer = (state, action) => {
 };
 //
 const cleanCart = (dispatch) => {
-  return async () => {
+  return async (fullObj, type) => {
     //
     //  Delete Local Storage cart
     //
     let res = {
       fail: false,
-      hasProducts: false,
-      white: 0,
-      black: 0,
-      tropi: 0,
-      piney: 0,
+      [type]: {
+        ...fullObj,
+        quantity: 0,
+      },
     };
     //
     localStorage.setItem("hasProducts", 0);
@@ -59,7 +58,6 @@ const getProducts = (dispatch) => {
         withCredentials: true,
       })
       .then((response) => {
-        console.log([...response.data.products]);
         return [...response.data.products];
       })
       .catch((err) => {
@@ -72,7 +70,7 @@ const getProducts = (dispatch) => {
         payload: data,
       });
     } catch (err) {
-      console.log('Error heree ',err);
+      console.log("Error heree ", err);
     }
   };
 };

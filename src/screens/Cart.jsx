@@ -7,7 +7,6 @@ function Cart() {
   //
   const { state, generateCartFromStorage } = useContext(Context);
   const [isQtySelected, setIsQtySelected] = useState(false);
-  const [isShowingShippingForm, setShowShippingForm] = useState(false);
 
   //
   useEffect(() => {
@@ -32,31 +31,12 @@ function Cart() {
   };
   //
 
-  const handleShippingForm = () => {
-    setShowShippingForm(!isShowingShippingForm);
-  };
   //
   console.log(" from cart", state);
   if (state.cart !== undefined && state.cart.hasProducts) {
     return (
       <div className="cart-div">
-        <div className="item-card">
-          {Object.keys(state.cart).map((item) => {
-            if (item !== "fail" && item !== "hasProducts") {
-              return (
-                <>
-                  <div key={item} className="item-qty-dlt">
-                    <h3 style={{ textAlign: "center", margin: 0 }}>{item}</h3>
-                    <h3 style={{ textAlign: "center", margin: 0 }}>
-                      {state.cart[`${item}`]}
-                    </h3>
-                  </div>
-                </>
-              );
-            }
-            return null;
-          })}
-        </div>
+        <div className="item-card"></div>
 
         <a className="btn-link" href="/checkout">
           Go To Checkout
