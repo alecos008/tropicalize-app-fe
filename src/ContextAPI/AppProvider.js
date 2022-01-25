@@ -3,10 +3,6 @@ import axios from "axios";
 //
 const appReducer = (state, action) => {
   switch (action.type) {
-    case "clear_cart":
-      return {
-        cart: action.payload,
-      };
     case "get_cart":
       return {
         ...state,
@@ -16,6 +12,10 @@ const appReducer = (state, action) => {
       return {
         ...state,
         products: action.payload,
+      };
+    case "clear_cart":
+      return {
+        cart: action.payload,
       };
     default:
       return state;
@@ -30,7 +30,7 @@ const cleanCart = (dispatch) => {
     let res = {
       fail: false,
       [type]: {
-        ...fullObj,
+        fullObj,
         quantity: 0,
       },
     };
@@ -103,16 +103,12 @@ const generateCartFromStorage = (dispatch) => {
 };
 //
 const addOne = (dispatch) => {
-  return async (fullobject, grinderType) => {
+  return async (fullObj, grinderType) => {
     //
-    fullobject[`${grinderType}`] += 1;
-    fullobject.hasProducts = true;
-    //
-    //  Set Local Storage cart
-    //
-    localStorage.setItem(grinderType, fullobject[`${grinderType}`]);
-    localStorage.setItem("hasProducts", true);
-    let data = fullobject;
+
+    fullObj[grinderType].quantity += 1;
+
+    let data = fullObj;
     try {
       dispatch({
         type: "get_cart",
@@ -137,12 +133,18 @@ export const { Context, Provider } = createDataContext(
   },
   {
     cart: {
-      fail: false,
-      hasProducts: Boolean(localStorage.getItem("hasProducts")),
-      white: Number(localStorage.getItem("white")),
-      black: Number(localStorage.getItem("black")),
-      tropi: Number(localStorage.getItem("tropi")),
-      piney: Number(localStorage.getItem("piney")),
+      white: {
+        quantity: 0,
+      },
+      black: {
+        quantity: 0,
+      },
+      piney: {
+        quantity: 0,
+      },
+      tropi: {
+        quantity: 0,
+      },
     },
   }
 );

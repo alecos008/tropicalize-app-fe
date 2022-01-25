@@ -13,12 +13,11 @@ import HomeScreen from "./screens/home";
 import CheckoutScreen from "./screens/CheckoutScreen";
 //
 function App() {
-  const { state, getProducts, cleanCart } = useContext(Context);
+  const { state, getProducts } = useContext(Context);
   //
 
   useEffect(() => {
     getProducts();
-    cleanCart(state.products[0], state.products[0].type);
   }, []);
 
   const [activeSideBar, setActiveSideBar] = useState(false);
@@ -26,9 +25,10 @@ function App() {
     e.preventDefault();
     setActiveSideBar(!activeSideBar);
   }
+
+  console.log("state from app", state);
   //
   if (state) {
-    console.log("State from app js", state);
     return (
       <div className="App">
         <div

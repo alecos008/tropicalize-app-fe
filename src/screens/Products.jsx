@@ -5,15 +5,20 @@ import axios from "axios";
 import "./Products.css";
 
 function Products() {
-  const { state, addOne, getProducts } = useContext(Context);
+  const { state, addOne, cleanCart } = useContext(Context);
   //
   useEffect(() => {
-    getProducts();
+    if (state.products !== undefined) {
+      state.products.map((product) => {
+        return cleanCart(product, product.type);
+      });
+    }
   }, []); //
   //https://res.cloudinary.com/alecos008/image/upload/c_crop,h_305,w_343/v1642285227/pina_sin_titulo_vector_qs6klb.png
 
-  console.log("rerevevweve", state);
-  if (state.cart !== undefined && state.products !== undefined) {
+  console.log("state from products", state);
+
+  if (state.products !== undefined && state.cart !== undefined) {
     return (
       <div className="product-screen">
         <div className="figure-container mobile-hidden">
@@ -24,34 +29,27 @@ function Products() {
         </div>
 
         <div className="products-container desktop-scrollable">
-          {state.cart !== null &&
-            state.products.map((product) => {
-              return (
-                <div className="product-card" key={product._id}>
-                  <h2>{product.name}</h2>
-                  <div>
-                    <img
-                      src={product.image1}
-                      className="product-img"
-                      alt="Grinder"
-                    />
-                  </div>
-                  <button
-                    className="product-btn"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      addOne(state.cart, product.type);
-                      console.log("state.cart after addone click", state.cart);
-                    }}
-                  >
-                    {state.cart.hasProducts === true &&
+          {state.products.map((product) => {
+            return (
+              <div className="product-card" key={product._id}>
+                <h2>{product.name}</h2>
+                <div>
+                  <img
+                    src={product.image1}
+                    className="product-img"
+                    alt="Grinder"
+                  />
+                </div>
+                <button className="product-btn">
+                  {/* {state.cart.hasProducts === true &&
                     state.cart[`${product.type}`] > 0
                       ? `${state.cart[`${product.type}`]} Items Added`
-                      : "Add item to cart"}
-                  </button>
-                </div>
-              );
-            })}
+                      : "Add item to cart"} */}
+                  click me
+                </button>
+              </div>
+            );
+          })}
         </div>
       </div>
     );
