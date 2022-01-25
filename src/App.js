@@ -10,7 +10,7 @@ import { Image } from "semantic-ui-react";
 import Products from "./screens/Products";
 import Cart from "./screens/Cart";
 import HomeScreen from "./screens/home";
-import Checkout from "./screens/Checkout";
+import CheckoutScreen from "./screens/CheckoutScreen";
 //
 function App() {
   const { state } = useContext(Context);
@@ -29,10 +29,11 @@ function App() {
           style={{
             display: "flex",
             flexDirection: "row",
-            minWidth: "100%",
+            width: "100%",
             justifyContent: "space-around",
             alignItems: "center",
             minHeight: "10vh",
+            background: "black",
           }}
         >
           <Image
@@ -60,7 +61,7 @@ function App() {
               <Route path="/products" element={<Products />} />
 
               <Route path="/cart" element={<Cart />} />
-              <Route path="/checkout" element={<Checkout />} />
+              <Route path="/checkout" element={<CheckoutScreen />} />
               {/* <Route path="/shipping-form" element={<ShippingForm />} /> */}
             </Routes>
           }

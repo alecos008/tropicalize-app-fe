@@ -1,8 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
-import ShippingForm from "../components/PaymentComponents/ShippingForm";
 import "./Cart.css";
-import { AiOutlineDelete } from "react-icons/ai";
 import { Context } from "../ContextAPI/AppProvider";
+//
 
 function Cart() {
   //
@@ -47,14 +46,8 @@ function Cart() {
               return (
                 <>
                   <div key={item} className="item-qty-dlt">
-                    <h3
-                      style={{ textAlign: "center", margin: 0, color: "white" }}
-                    >
-                      {item}
-                    </h3>
-                    <h3
-                      style={{ textAlign: "center", margin: 0, color: "white" }}
-                    >
+                    <h3 style={{ textAlign: "center", margin: 0 }}>{item}</h3>
+                    <h3 style={{ textAlign: "center", margin: 0 }}>
                       {state.cart[`${item}`]}
                     </h3>
                   </div>
@@ -65,7 +58,9 @@ function Cart() {
           })}
         </div>
 
-        <a href="/checkout">Go To Checkout</a>
+        <a className="btn-link" href="/checkout">
+          Go To Checkout
+        </a>
       </div>
     );
   } else {

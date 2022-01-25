@@ -37,6 +37,7 @@ function Products() {
                     />
                   </div>
                   <button
+                    className="product-btn"
                     onClick={(e) => {
                       e.preventDefault();
                       addOne(state.cart, product.type);

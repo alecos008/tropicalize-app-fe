@@ -2,7 +2,7 @@ import { Button, Icon, Menu, Sidebar } from "semantic-ui-react";
 
 function NavbarSemantic({ AppContent, activeHelper, activeSideBar }) {
   return (
-    <>
+    <div>
       <Sidebar
         as={Menu}
         animation={"scale down"}
@@ -104,7 +104,7 @@ function NavbarSemantic({ AppContent, activeHelper, activeSideBar }) {
           {AppContent}
         </Sidebar.Pusher>
       </Sidebar.Pushable>
-    </>
+    </div>
   );
 }
 
