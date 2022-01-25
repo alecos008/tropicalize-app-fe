@@ -109,6 +109,7 @@ const addOne = (dispatch) => {
     fullObj[grinderType].quantity += 1;
 
     let data = fullObj;
+    console.log("data:", data, "grinderType:", grinderType);
     try {
       dispatch({
         type: "get_cart",

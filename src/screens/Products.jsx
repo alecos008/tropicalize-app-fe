@@ -40,7 +40,10 @@ function Products() {
                     alt="Grinder"
                   />
                 </div>
-                <button className="product-btn">
+                <button
+                  onClick={() => addOne(state.cart, product.type)}
+                  className="product-btn"
+                >
                   {/* {state.cart.hasProducts === true &&
                     state.cart[`${product.type}`] > 0
                       ? `${state.cart[`${product.type}`]} Items Added`
