@@ -5,7 +5,7 @@ import axios from "axios";
 import "./Products.css";
 
 function Products() {
-  const { state, addOne, cleanCart } = useContext(Context);
+  const { state, addOne } = useContext(Context);
   //
   useEffect(() => {}, []); //
   //https://res.cloudinary.com/alecos008/image/upload/c_crop,h_305,w_343/v1642285227/pina_sin_titulo_vector_qs6klb.png

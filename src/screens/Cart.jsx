@@ -1,15 +1,17 @@
 import React, { useState, useContext, useEffect } from "react";
 import "./Cart.css";
 import { Context } from "../ContextAPI/AppProvider";
+import { Image } from "semantic-ui-react";
 //
 
 function Cart() {
   //
-  const { state } = useContext(Context);
+  const { state, generateCartFromStorage } = useContext(Context);
 
   //
-
-  //
+  useEffect(() => {
+    generateCartFromStorage();
+  }, []);
 
   const handleChange = ({ target: { name, value } }) => {
     if (name.includes("White")) {
@@ -25,11 +27,19 @@ function Cart() {
   //
 
   //
-  console.log(" from cart", state);
+
   if (state.cart !== undefined) {
     return (
       <div className="cart-div">
-        <div className="item-card"></div>
+        {Object.values(state.cart).map((item) => {
+          return (
+            <div>
+              <h4>{item.name}</h4>
+              <Image src={item.image} size="tiny" />
+              <input type="number" min={0} value={item.quantity} />
+            </div>
+          );
+        })}
 
         <a className="btn-link" href="/checkout">
           Go To Checkout

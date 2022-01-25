@@ -81,12 +81,10 @@ const generateCartFromStorage = (dispatch) => {
     //  Delete Local Storage cart
     //
     let data = {
-      fail: false,
-      hasProducts: Boolean(localStorage.getItem("hasProducts")),
-      white: Number(localStorage.getItem("white")),
-      black: Number(localStorage.getItem("black")),
-      tropi: Number(localStorage.getItem("tropi")),
-      piney: Number(localStorage.getItem("piney")),
+      white: JSON.parse(localStorage.getItem("white")),
+      black: JSON.parse(localStorage.getItem("black")),
+      tropi: JSON.parse(localStorage.getItem("tropi")),
+      piney: JSON.parse(localStorage.getItem("piney")),
     };
     try {
       dispatch({
@@ -139,24 +137,28 @@ export const { Context, Provider } = createDataContext(
   {
     cart: {
       white: {
+        _id: "61aba1622e2b3c45099951e9",
         name: "Tropicalize Silicone-Coated White Grinder",
         image:
           "https://res.cloudinary.com/alecos008/image/upload/v1635680349/White_Grinder_cm7vca.jpg",
         quantity: 0,
       },
       black: {
+        _id: "61aba0e02e2b3c45099951e8",
         name: "Tropicalize Silicone-Coated Black Grinder",
         image:
           "https://res.cloudinary.com/alecos008/image/upload/v1635680327/Black_Grinder_gyyzr5.jpg",
         quantity: 0,
       },
       piney: {
+        _id: "61dd6e6de8e6c9ece63c93ec",
         name: "Tropicalize Small Piney Bio-Grinder",
         image:
           "https://res.cloudinary.com/alecos008/image/upload/v1641850646/ALL_yklipo.png",
         quantity: 0,
       },
       tropi: {
+        _id: "61dd6eeae8e6c9ece63c93ed",
         name: "Tropicalize Small Tropi Bio-Grinder",
         image:
           "https://res.cloudinary.com/alecos008/image/upload/v1641850720/All_sk8uml.png",
