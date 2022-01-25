@@ -7,13 +7,7 @@ import "./Products.css";
 function Products() {
   const { state, addOne, cleanCart } = useContext(Context);
   //
-  useEffect(() => {
-    if (state.products !== undefined) {
-      state.products.map((product) => {
-        return cleanCart(product, product.type);
-      });
-    }
-  }, []); //
+  useEffect(() => {}, []); //
   //https://res.cloudinary.com/alecos008/image/upload/c_crop,h_305,w_343/v1642285227/pina_sin_titulo_vector_qs6klb.png
 
   /*   console.log("state from products", state); */
@@ -44,7 +38,7 @@ function Products() {
                   onClick={() => addOne(state.cart, product.type)}
                   className="product-btn"
                 >
-                  {console.log(state.cart)}
+                  {console.log(state)}
                   {state.cart[product.type].quantity > 0
                     ? "Item added - Select Quantity in Cart"
                     : "Add Item "}

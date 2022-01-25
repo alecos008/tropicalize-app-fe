@@ -107,6 +107,11 @@ const addOne = (dispatch) => {
     //
     fullObj[grinderType].quantity += 1;
     //
+    localStorage.setItem(
+      `${grinderType}`,
+      JSON.stringify(fullObj[grinderType])
+    );
+    //
     let data = fullObj;
     //
     try {

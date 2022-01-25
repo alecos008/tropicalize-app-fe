@@ -44,7 +44,13 @@ function App() {
         >
           <Image
             src="https://res.cloudinary.com/alecos008/image/upload/v1642968054/Titulo_Solo_jcdag0.png"
-            size="medium"
+            className="logo-letters"
+            size={"small"}
+          />
+          <Image
+            src="https://res.cloudinary.com/alecos008/image/upload/c_crop,h_305,w_343/v1642285227/pina_sin_titulo_vector_qs6klb.png"
+            className="logo-piney"
+            size="small"
           />
 
           <Icon
@@ -53,6 +59,7 @@ function App() {
             style={{
               padding: "1rem",
               marginRight: "3rem",
+              marginBottom: "2rem",
               color: "rgba(240, 46, 170, 1)",
             }}
             onClick={activeHelper}

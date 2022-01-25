@@ -5,13 +5,10 @@ import { Context } from "../ContextAPI/AppProvider";
 
 function Cart() {
   //
-  const { state, generateCartFromStorage } = useContext(Context);
-  const [isQtySelected, setIsQtySelected] = useState(false);
+  const { state } = useContext(Context);
 
   //
-  useEffect(() => {
-    generateCartFromStorage();
-  }, []);
+
   //
 
   const handleChange = ({ target: { name, value } }) => {
@@ -24,16 +21,12 @@ function Cart() {
     } else if (name.includes("Tropi")) {
       // setTropiUnits(value);
     }
-
-    state.cart.white || state.cart.black || state.cart.piney || state.cart.tropi
-      ? setIsQtySelected(true)
-      : setIsQtySelected(false);
   };
   //
 
   //
   console.log(" from cart", state);
-  if (state.cart !== undefined && state.cart.hasProducts) {
+  if (state.cart !== undefined) {
     return (
       <div className="cart-div">
         <div className="item-card"></div>

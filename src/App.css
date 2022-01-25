@@ -20,3 +20,9 @@ body {
 .sidebar:nth-child(1n) {
   border: 1px solid white !important;
 }
+
+@media (min-width: 800px) {
+  .logo-piney {
+    display: none !important;
+  }
+}
