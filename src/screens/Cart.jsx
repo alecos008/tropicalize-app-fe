@@ -1,34 +1,39 @@
 import React, { useState, useContext, useEffect } from "react";
-import "./Cart.css";
 import { Context } from "../ContextAPI/AppProvider";
 import { Image } from "semantic-ui-react";
+import "./Cart.css";
 //
 
 function Cart() {
-  //
-  const { state, generateCartFromStorage } = useContext(Context);
+  const { state, generateCartFromStorage, editQuantity } = useContext(Context);
 
   //
   useEffect(() => {
     generateCartFromStorage();
   }, []);
 
-  const handleChange = ({ target: { name, value } }) => {
-    state.cart[name].quantity = value;
-  };
   //
 
   //
-  console.log(state.cart);
+  console.log("from cart", state.cart);
   if (state.cart !== undefined && state.cart !== null) {
     return (
       <div className="cart-div">
         {Object.values(state.cart).map((item) => {
           if (item !== null) {
             return (
-              <div key={item.id}>
+              <div className="inner-cart" key={item.id}>
                 <h4>{item.name}</h4>
-                <Image src={item.image} size="tiny" />
+                <div>
+                  <Image src={item.image} size="tiny" />
+
+                  <input
+                    type="number"
+                    placeholder="Enter Item Quantity"
+                    name={item.type}
+                    className="qty-input"
+                  />
+                </div>
               </div>
             );
           } else {

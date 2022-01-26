@@ -126,6 +126,23 @@ const addOne = (dispatch) => {
   };
 };
 //
+const editQuantity = (dispatch) => {
+  return async (fullObj, grinderType) => {
+    let data = fullObj;
+    console.log("data:", data);
+    try {
+      dispatch({
+        type: "get_cart",
+        payload: "data",
+      });
+    } catch {
+      dispatch({
+        type: "get_cart",
+        payload: { fail: true, hasProducts: false },
+      });
+    }
+  };
+};
 export const { Context, Provider } = createDataContext(
   appReducer,
   {
@@ -133,6 +150,7 @@ export const { Context, Provider } = createDataContext(
     generateCartFromStorage,
     getProducts,
     addOne,
+    editQuantity,
   },
   {
     cart: {
