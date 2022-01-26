@@ -19,27 +19,33 @@ function Cart() {
   if (state.cart !== undefined && state.cart !== null) {
     return (
       <div className="cart-div">
-        {Object.values(state.cart).map((item) => {
-          if (item !== null) {
-            return (
-              <div className="inner-cart" key={item.id}>
-                <h4>{item.name}</h4>
-                <div>
-                  <Image src={item.image} size="tiny" />
+        <div className="cart-figure">
+          <h2>fwegwefefwe</h2>
+        </div>
+        <div className="products-incart">
+          {Object.values(state.cart).map((item) => {
+            if (item !== null) {
+              return (
+                <div className="inner-cart" key={item.id}>
+                  <h4>{item.name}</h4>
+                  <div>
+                    <Image src={item.image} size="tiny" />
 
-                  <input
-                    type="number"
-                    placeholder="Enter Item Quantity"
-                    name={item.type}
-                    className="qty-input"
-                  />
+                    <input
+                      type="number"
+                      placeholder="Enter Item Quantity"
+                      name={item.type}
+                      className="qty-input"
+                    />
+                  </div>
                 </div>
-              </div>
-            );
-          } else {
-            return "";
-          }
-        })}
+              );
+            } else {
+              return "";
+            }
+          })}
+        </div>
+
         <a className="btn-link" href="/checkout">
           Go To Checkout
         </a>
