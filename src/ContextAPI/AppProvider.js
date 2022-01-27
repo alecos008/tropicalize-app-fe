@@ -8,6 +8,11 @@ const appReducer = (state, action) => {
         ...state,
         cart: action.payload,
       };
+    case "edit_cart":
+      return {
+        ...state,
+        cart: action.payload,
+      };
     case "get_products":
       return {
         ...state,
@@ -128,16 +133,17 @@ const addOne = (dispatch) => {
 //
 const editQuantity = (dispatch) => {
   return async (fullObj, grinderType) => {
+    console.log("fullObj:", fullObj, "grinderType: ", grinderType);
     let data = fullObj;
     console.log("data:", data);
     try {
       dispatch({
-        type: "get_cart",
+        type: "edit_cart",
         payload: "data",
       });
     } catch {
       dispatch({
-        type: "get_cart",
+        type: "edit_cart",
         payload: { fail: true, hasProducts: false },
       });
     }
