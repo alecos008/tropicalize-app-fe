@@ -12,6 +12,10 @@ function Cart() {
     generateCartFromStorage();
   }, []);
 
+  const editQuantityHelper = async (event, item) => {
+    await editQuantity(state.cart, item.type, Number(event.target.value));
+  };
+
   //
 
   //
@@ -36,6 +40,7 @@ function Cart() {
                       placeholder="Enter Item Quantity"
                       name={item.type}
                       className="qty-input"
+                      onChange={(event) => editQuantityHelper(event, item.type)}
                     />
                   </div>
                 </div>

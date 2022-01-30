@@ -132,8 +132,9 @@ const addOne = (dispatch) => {
 };
 //
 const editQuantity = (dispatch) => {
-  return async (fullObj, grinderType) => {
-    console.log("fullObj:", fullObj, "grinderType: ", grinderType);
+  return async (fullObj, grinderType, quantity) => {
+    console.log(fullObj, grinderType, quantity);
+    fullObj[grinderType].quantity = quantity;
     let data = fullObj;
     console.log("data:", data);
     try {
