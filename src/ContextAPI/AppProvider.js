@@ -133,12 +133,12 @@ const addOne = (dispatch) => {
 //
 const editQuantity = (dispatch) => {
   return async (fullObj, grinderType, quantity) => {
-    console.log(fullObj, grinderType, quantity);
+    console.log('Heree ------> ',fullObj, grinderType, quantity);
     // Testing this
-    fullObj[grinderType].quantity = quantity;
-    let data = fullObj;
-    console.log("data:", data);
     try {
+      fullObj[grinderType].quantity = quantity;
+      let data = fullObj;
+      console.log("data:", data);
       dispatch({
         type: "edit_cart",
         payload: "data",
