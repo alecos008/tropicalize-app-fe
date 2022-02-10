@@ -7,13 +7,14 @@ export default function Home() {
       style={{
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center"
+        justifyContent: "spaceBetween",
+        alignItems: "center",
+        height: "90vh",
       }}
     >
-      <h1>Hello from TropiHome!</h1>
+      <h2>Welcome to Tropicalize's Landing Page</h2>
       <Image
-        src="https://res.cloudinary.com/alecos008/image/upload/v1641843490/tropi-letters_fwyntk.png"
+        src="https://res.cloudinary.com/alecos008/image/upload/v1644504881/Web_Cover_kfhrww.png"
         size="huge"
       />
     </div>
