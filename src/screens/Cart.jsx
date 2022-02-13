@@ -13,8 +13,15 @@ function Cart() {
   }, []);
 
   const editQuantityHelper = async (event, type) => {
-    console.log('Heree 1',type, event)
-    await editQuantity(state.cart, event.target.name, Number(event.target.value));
+    console.log("Heree 1", type, event);
+    // El peo es el type pero no si es mi db
+    // tambien cambie los argumentos de item.type
+    // 
+    await editQuantity(
+      state.cart,
+      event.target.name,
+      Number(event.target.value)
+    );
   };
 
   //
@@ -41,7 +48,9 @@ function Cart() {
                       placeholder="Enter Item Quantity"
                       name={item.type}
                       className="qty-input"
-                      onChange={(event) => {editQuantityHelper(event, item.type)}}
+                      onChange={(event) => {
+                        editQuantityHelper(event, item.type);
+                      }}
                     />
                   </div>
                 </div>
